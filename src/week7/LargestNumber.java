@@ -24,6 +24,7 @@ public class LargestNumber {
                         inputNumbers[i] = tempInteger;
                     } catch (Exception e) {
                         System.out.println("Invalid Response! Please enter a whole number.\n");
+                        inputFail = true;
                     }
                 }
             }

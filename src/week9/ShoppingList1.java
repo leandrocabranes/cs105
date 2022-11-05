@@ -1,6 +1,7 @@
 package week9;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -133,8 +134,26 @@ public class ShoppingList1 {
 	 * @return - the number of items deleted from the shopping list
 	 */
 	public static int deleteItems(Scanner sIn, ArrayList<String> shoppingList) {
-		// FIXME: implement the method
-		return 0;
+		String input = "";
+		Integer deletedItemsCounter = 0;
+		while(true) {
+			System.out.println("Delete an item from the list (or just hit 'ENTER' when done): ");
+			input = sIn.nextLine();
+			if (input.isEmpty()) {
+				break;
+			} else {
+				Boolean deleted = shoppingList.remove(input);
+				if(deleted) {
+					System.out.println("'"+ input +"' has been deleted to the Shopping List.\n");
+					deletedItemsCounter++;
+				} else {
+					System.out.println("Invalid Response! '"+ input +"' is NOT an item in the list.\n");
+					showItems(shoppingList);
+
+				}
+			}
+		}
+		return deletedItemsCounter;
 	}// end of method deleteItems(ArrayList<String>)
 
 	/**
@@ -149,7 +168,8 @@ public class ShoppingList1 {
 	 * @param shoppingList - The ArrayList that stores the shopping list
 	 */
 	public static void showItems(ArrayList<String> shoppingList) {
-		// FIXME: implement the method
+		System.out.println("The Shopping List contains the following items:");
+		System.out.println(shoppingList);
 	}// end of method showItems(ArrayList<String>)
 
 	/**
@@ -163,7 +183,10 @@ public class ShoppingList1 {
 	 * @param shoppingList - The ArrayList that stores the shopping list
 	 */
 	public static void sortItems(ArrayList<String> shoppingList) {
-		// FIXME: implement the method
+		System.out.println("The Shopping List has been sorted.\n");
+		Collections.sort(shoppingList);
+
+		showItems(shoppingList);
 	}// end of method sortItems(ArrayList<String>)
 
 }// 
